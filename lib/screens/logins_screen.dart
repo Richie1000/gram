@@ -31,68 +31,80 @@ class _LoginScreenState extends State<LoginScreen> {
         body: SafeArea(
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 32),
+        height: MediaQuery.of(context).size.height,
         width: double.infinity,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          Expanded(child: Container(), flex: 2),
-          //svg Image
-          SvgPicture.asset(
-            'assets/ig.svg',
-            color: Theme.of(context).primaryColor,
-            height: 64,
-          ),
-          SizedBox(
-            height: 64,
-          ),
-          //e-mail textfield
-          TextFieldInput(
-            hintText: "Enter Your Email",
-            textInputType: TextInputType.emailAddress,
-            textEditingController: _emailContrller,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          //password textfield
-          TextFieldInput(
-            hintText: "Password",
-            textInputType: TextInputType.text,
-            textEditingController: _passwordController,
-            isPassword: true,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          InkWell(
-            onTap: (){},
+        child: SingleChildScrollView(
           child: Container(
-            child: const Text("Log in"),
-            width: double.infinity,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            decoration: ShapeDecoration(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4)),
-                color: blueColor),
-          ),),
-          const SizedBox(
-            height: 12,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  //Expanded(child: Container(), flex: 2),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  //svg Image
+
+                  SvgPicture.asset(
+                    'assets/ig.svg',
+                    color: Theme.of(context).primaryColor,
+                    height: 64,
+                  ),
+                  SizedBox(
+                    height: 64,
+                  ),
+                  //e-mail textfield
+                  TextFieldInput(
+                    hintText: "Enter Your Email",
+                    textInputType: TextInputType.emailAddress,
+                    textEditingController: _emailContrller,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  //password textfield
+                  TextFieldInput(
+                    hintText: "Password",
+                    textInputType: TextInputType.text,
+                    textEditingController: _passwordController,
+                    isPassword: true,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      child: const Text("Log in"),
+                      width: double.infinity,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      decoration: ShapeDecoration(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4)),
+                          color: blueColor),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  Expanded(child: Container(), flex: 2),
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    Container(
+                      child: const Text("Dont have an account?"),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                    ),
+                    InkWell(
+                        child: Container(
+                      child: const Text(
+                        "Sign up",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                    )),
+                  ])
+                ]),
           ),
-          Expanded(child: Container(), flex: 2),
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Container(
-              child: const Text("Dont have an account?"),
-              padding: const EdgeInsets.symmetric(vertical: 8),
-            ),
-            InkWell (
-              child: Container(
-              child: const Text(
-                "Sign up",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              padding: const EdgeInsets.symmetric(vertical: 8),
-            )),
-          ])
-        ]),
+        ),
       ),
     ));
   }
