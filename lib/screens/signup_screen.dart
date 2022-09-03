@@ -12,6 +12,7 @@ import 'package:image_picker/image_picker.dart';
 
 import '../widgets/text_field.dart';
 import '../resources/authentication.dart';
+import '../screens/login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -185,6 +186,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     height: 12,
                   ),
+
+                  GestureDetector(
+                      child: Text("Login Instead"),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => CustomLoginScreen()));
+                      })
 
                   //Expanded(child: Container(), flex: 2),
                   // Row(mainAxisAlignment: MainAxisAlignment.center, children: [
