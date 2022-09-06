@@ -47,11 +47,9 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: Icon(Icons.arrow_back_ios)),
+        backgroundColor: Colors.transparent,
+        //title: SvgPicture.asset("assets/ig.svg"),
+        centerTitle: false,
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -65,7 +63,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
                 // ),
                 SvgPicture.asset(
                   'assets/ig.svg',
-                  color: Theme.of(context).primaryColor,
+                  color: Colors.white54,
                   height: 64,
                 ),
                 SizedBox(

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gram/utilities/colors.dart';
 import 'package:gram/utilities/utils.dart';
@@ -15,6 +16,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   var userData = {};
+  int numberPosts = 0;
   @override
   void initState() {
     // TODO: implement initState
@@ -28,6 +30,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           .collection("users")
           .doc(widget.uid)
           .get();
+      var postSnap = await FirebaseFirestore.instance.collection('posts').where('uid', isEqualTo: FirebaseAuth.instance.currentUser!.uid).get();
+      numberPosts = postSnap.docs.length;
       userData = snap.data()!;
       setState(() {});
     } catch (error) {
@@ -53,7 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     CircleAvatar(
                       backgroundColor: Colors.grey,
-                      backgroundImage: AssetImage("assets/defaultpic.jpg"),
+                      backgroundImage: NetworkImage(userData['photourl']),
                       radius: 40,
                     ),
                     Expanded(
@@ -63,9 +67,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              buildStatColumn(5, 'Posts'),
-                              buildStatColumn(200, 'Followers'),
-                              buildStatColumn(5, 'Following'),
+                              buildStatColumn(numberPosts, '  Posts'),
+                              buildStatColumn(userData['followers'].length, '  Followers'),
+                              buildStatColumn(userData['following'].length, '   Following'),
                             ],
                           ),
                           Row(
@@ -89,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.only(top: 15),
                   child: Text(
-                    "Username",
+                    userData['username'],
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),

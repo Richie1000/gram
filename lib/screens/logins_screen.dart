@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gram/screens/signup_screen.dart';
 import 'package:gram/utilities/colors.dart';
 
 import '../widgets/text_field.dart';
@@ -94,6 +95,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 8),
                     ),
                     InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignUpScreen()));
+                      },
                         child: Container(
                       child: const Text(
                         "Sign up",
