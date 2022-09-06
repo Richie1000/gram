@@ -56,7 +56,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         email: _emailContrller.text,
         password: _passwordController.text,
         username: _usernameController.text,
-        fullname: _bioController.text,
+        bio: _bioController.text,
         file: _image!);
     print(res);
 
@@ -160,7 +160,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   //Bio textfield
                   TextFieldInput(
-                    hintText: "Enter your Full Name",
+                    hintText: "Enter Bio",
                     textInputType: TextInputType.name,
                     textEditingController: _bioController,
                   ),

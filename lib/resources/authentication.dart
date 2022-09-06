@@ -26,14 +26,14 @@ class AuthMethods {
       {required String email,
       required String password,
       required String username,
-      required String fullname,
+      required String bio,
       required Uint8List file}) async {
     String result = "Some error occured";
     try {
       if (email.isNotEmpty ||
           password.isNotEmpty ||
           username.isNotEmpty ||
-          fullname.isNotEmpty ||
+          bio.isNotEmpty ||
           file != null) {
         UserCredential cred = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
@@ -48,7 +48,7 @@ class AuthMethods {
             photoUrl: picUrl,
             followers: [],
             following: [],
-            fullName: fullname,
+            bio: bio,
             uid: cred.user!.uid,
             username: username);
 
