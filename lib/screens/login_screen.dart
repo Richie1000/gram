@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gram/utilities/global_variables.dart';
 
 import '../widgets/text_field.dart';
 import '../utilities/colors.dart';
@@ -54,7 +55,10 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: MediaQuery.of(context).size.width > webScreenSize
+                ? EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width / 3)
+                : EdgeInsets.all(10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -107,7 +111,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
                 ),
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   Container(
-                    child: const Text("Dont have an account?"),
+                    child: const Text("Dont have an account? "),
                     padding: const EdgeInsets.symmetric(vertical: 8),
                   ),
                   GestureDetector(
@@ -117,7 +121,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
                     },
                     child: Container(
                       child: const Text(
-                        "Sign up",
+                        " Sign up",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 8),
