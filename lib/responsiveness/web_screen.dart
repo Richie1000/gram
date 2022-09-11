@@ -18,7 +18,12 @@ class WebScreenLayout extends StatelessWidget {
           height: 32,
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.message_outlined))
+          IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.add_a_photo)),
+          IconButton(
+              onPressed: () {}, icon: const Icon(Icons.message_outlined)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.person))
         ],
       ),
       body: Center(

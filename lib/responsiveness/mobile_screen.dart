@@ -80,7 +80,7 @@ class _MobileScreenState extends State<MobileScreen> {
               backgroundColor: primaryColor),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.favorite,
+                Icons.shopping_bag_outlined,
                 color: _page == 3 ? primaryColor : secondaryColor,
               ),
               label: "",

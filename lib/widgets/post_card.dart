@@ -185,20 +185,21 @@ class _PostCardState extends State<PostCard> {
                             snap: widget.snap,
                           )));
                 },
-                icon: Icon(Icons.message),
+                icon: Icon(Icons.chat_bubble_outline_rounded),
                 //color: Colors.red,
               ),
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.share),
+                icon: Icon(Icons.send),
                 //color: Colors.red,
               ),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.bookmark_added_outlined)),
+                    onPressed: () {},
+                    icon: Icon(Icons.bookmark_outline_rounded),
+                  ),
                 ),
               ),
             ],
