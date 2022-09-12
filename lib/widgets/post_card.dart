@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -188,10 +190,13 @@ class _PostCardState extends State<PostCard> {
                 icon: Icon(Icons.chat_bubble_outline_rounded),
                 //color: Colors.red,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.send),
-                //color: Colors.red,
+              Transform.rotate(
+                angle: -math.pi/4.5,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.send),
+                  //color: Colors.red,
+                ),
               ),
               Expanded(
                 child: Align(

@@ -14,9 +14,10 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: SvgPicture.asset("ig.svg"),
+      title: SvgPicture.asset("assets/ig.svg", color: Colors.white60,),
+
       centerTitle: false,
-      backgroundColor: primaryColor,
+      backgroundColor: mobileBackgroundColor,
       actions: [
         IconButton(
           onPressed: () {},
